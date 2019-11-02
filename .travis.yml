@@ -2,7 +2,7 @@ language: minimal
 
 dist: bionic
 
-add-ons:
+addons:
    apt:
       packages:
          - debhelper
