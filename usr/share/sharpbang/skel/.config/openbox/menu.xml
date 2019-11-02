@@ -13,7 +13,7 @@
       </item>
 		<separator/>
       <!-- Auto-updating applications menu: -->
-      <menu id="applications-menu" label="Applications" execute="/usr/bin/obamenu"/>
+      <menu id="applications-menu" label="Applications" execute="/usr/bin/openbox-menu lxde-applications.menu"/>
       <!-- Non-updating applications menu:
 		<menu id="apps" label="Applications">
 			<item label="Disk editor (!)">
