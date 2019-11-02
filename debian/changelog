@@ -1,3 +1,9 @@
+sharp-configs (0.3.2) unstable; urgency=medium
+
+  * Move to github, CI ftw!
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sat, 02 Nov 2019 11:11:39 +0000
+
 sharp-configs (0.3.1) unstable; urgency=medium
 
   * New release
