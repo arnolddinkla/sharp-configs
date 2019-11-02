@@ -1,0 +1,18 @@
+language: minimal
+
+dist: bionic
+
+add-ons:
+   apt:
+      packages: debhelper
+
+script: debuild -us -uc
+
+deploy:
+   provider: releases
+   api_key: "$GITHUB_TOKEN"
+   file: "sharp-configs_0.3.2_all.deb"
+   skip_cleanup: true
+   on:
+      tags: true
+
