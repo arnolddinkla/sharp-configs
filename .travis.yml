@@ -14,8 +14,10 @@ script: debuild -us -uc
 deploy:
    provider: releases
    api_key: "$GITHUB_TOKEN"
-   file: "../sharp-configs_0.3.3.dsc"
-   file: "../sharp-configs_0.3.3.tar.xz"
+   file:
+      - "../sharp-configs_0.3.3.dsc"
+      - "../sharp-config_0.3.3.tar.xz"
+      - "../sharp-configs_0.3.3_all.deb"
    skip_cleanup: true
    on:
       tags: true
