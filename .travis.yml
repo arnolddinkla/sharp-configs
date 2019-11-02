@@ -4,7 +4,9 @@ dist: bionic
 
 add-ons:
    apt:
-      packages: debhelper
+      packages:
+         - debhelper
+         - devscripts
 
 script: debuild -us -uc
 
