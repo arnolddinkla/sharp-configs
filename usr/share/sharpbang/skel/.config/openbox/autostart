@@ -1,0 +1,20 @@
+# blank screen after 300 seconds, disable beep
+xset s 300 b off
+
+# set wallpaper with feh, /usr/share/sharpbang/images/wallpaper.png is the original
+sh ~/.fehbg
+
+# automatic wallpaper changer using images in ~/Pictures/wallpapers/
+# while sleep 600; do feh --bg-fill --randomize "${HOME}/Pictures/wallpapers/"; done &
+
+# compositor, remove '--backend glx' if TearFree video driver option is used
+compton --backend glx &
+
+# panel
+tint2 &
+
+# volume icon
+volumeicon &
+
+# allow pkexec
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &

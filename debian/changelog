@@ -1,0 +1,72 @@
+sharp-configs (0.3.1) unstable; urgency=medium
+
+  * New release
+  * Returned to #! keybindings
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sun, 27 Oct 2019 08:29:40 +0000
+
+sharp-configs (0.2.1) unstable; urgency=medium
+
+  * New release 
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sat, 26 Oct 2019 18:10:35 +0100
+
+sharp-configs (0.1-10) unstable; urgency=medium
+
+  * Root configuration
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sun, 09 Jun 2019 00:16:24 +0100
+
+sharp-configs (0.1-9) unstable; urgency=medium
+
+  * Minor tweaks
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sat, 08 Jun 2019 12:31:46 +0100
+
+sharp-configs (0.1-8) unstable; urgency=medium
+
+  * 's/pnmixer/volumeicon-alsa' && 's/{faba,moka}-icon-theme/papirus-icon-theme'
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sun, 02 Jun 2019 14:26:27 +0100
+
+sharp-configs (0.1-7) unstable; urgency=medium
+
+  * Fixed typo in zz-zdesktop.sh
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sat, 01 Jun 2019 17:48:14 +0100
+
+sharp-configs (0.1-6) unstable; urgency=medium
+
+  * Permissions for internal drive mount in thunar
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sat, 01 Jun 2019 15:05:54 +0100
+
+sharp-configs (0.1-5) unstable; urgency=medium
+
+  * UXterm configuration
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Fri, 31 May 2019 13:21:54 +0100
+
+sharp-configs (0.1-4) unstable; urgency=medium
+
+  * Removed live message
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Fri, 31 May 2019 12:53:14 +0100
+
+sharp-configs (0.1-3) unstable; urgency=medium
+
+  * Added Sharp-Greybird theme 
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Tue, 28 May 2019 19:33:23 +0100
+
+sharp-configs (0.1-2) unstable; urgency=medium
+
+  * General tidy-up
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Mon, 27 May 2019 20:39:17 +0100
+
+sharp-configs (0.1-1) unstable; urgency=medium
+
+  * Initial release (Closes: #0000)
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Tue, 21 May 2019 20:26:29 +0100

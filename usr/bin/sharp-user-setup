@@ -1,0 +1,111 @@
+#!/bin/bash
+#
+#    sharp-user-setup: a script to populate a new user's HOME directory
+#    using template files from /usr/share/sharpbang/skel/
+#    Copyright: 2015-2017 John Crawley <john@bunsenlabs.org>
+#    Copyright: 2019 Matthew T Hoare <matthew.t.hoare@gmail.com>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+USAGE="sharp-user-setup: a script to populate a new user's HOME directory
+using template files from /usr/share/sharpbang/skel
+
+Normally this script is run automatically on a user's first login,
+and inhibited after that by a flag file:
+~/.config/sharpbang/sharp-setup
+
+It can, however be run again by a user to update their config files
+from a new version of sharpbang-configs. In this case backups will be made
+of any files which are overwritten.
+
+If the user has already made extensive changes to their config files
+it would be better to copy in new settings from skel by hand.
+
+Options:
+-h --help
+    Show this message.
+--refresh
+    Copy in any files in /usr/share/sharpbang/skel which are different
+    from those in ~/. Overwritten files will be backed up.
+"
+
+readonly USER=${USER}
+readonly HOME=${HOME}
+readonly GROUP=$(id -ng "$USER")
+
+# Do not apply configs to the root account.
+if [[ "$USER" = root ]]; then
+    echo "$0: ERROR: USER is root, abort" >&2
+    exit 1
+fi
+
+# Check for the user home directory
+if [[ -z "$HOME" || ! -d "$HOME" ]]; then
+    echo "$0: ERROR: user home directory <$HOME> is not set or does not exist." >&2
+    exit 1
+fi
+
+bkp_sfx="~$( date +%FT%T )~"
+
+if [[ -n $1 ]]
+then
+    case $1 in
+    -h|--help)
+        echo "$USAGE"
+        exit 0
+    ;;
+    --refresh)
+        echo "New versions of files in /usr/share/sharpbang/skel will be copied into
+$HOME, overwriting files there.
+(foo.template files will be copied to foo, if different.)
+Any overwritten files will be backed up with a suffix of $bkp_sfx
+
+NB if you have already made many changes to your desktop,
+it would be easier to check /usr/share/sharpbang/skel
+and copy in any new settings to $HOME by hand.
+
+Do you want to continue? (Y)
+"
+        read -r
+        case ${REPLY^} in
+        Y|YES)
+            rs_opt='--verbose'
+            :
+        ;;
+        *)
+            echo 'bye...'
+            exit 0
+        ;;
+        esac
+    ;;
+    *)
+        echo "$0: $1: bad option" >&2
+        exit 1
+    ;;
+    esac
+else
+    # If setup already run, do nothing.
+    [[ -f "$HOME/.config/sharpbang/sharp-setup" ]] && exit 0
+fi
+
+echo 'Running sharp-user-setup to import configuration files.' > "$HOME/.xsession-errors"
+
+rsync -rlb ${rs_opt-} --checksum --suffix="$bkp_sfx" --safe-links /usr/share/sharpbang/skel/ "$HOME"
+
+mkdir -p "$HOME/.config/sharpbang" # this should already exist
+touch "$HOME/.config/sharpbang/sharp-setup"
+
+chown -R "$USER":"$GROUP" "$HOME"
+
+exit 0

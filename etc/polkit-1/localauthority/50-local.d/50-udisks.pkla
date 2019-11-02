@@ -1,0 +1,4 @@
+[udisks2]
+Identity=unix-group:users
+Action=org.freedesktop.udisks*
+ResultAny=yes
