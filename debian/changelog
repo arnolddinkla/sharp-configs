@@ -1,3 +1,9 @@
+sharp-configs (0.3.3) unstable; urgency=medium
+
+  * Switched to auto-generating applications menu
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sat, 02 Nov 2019 11:46:41 +0000
+
 sharp-configs (0.3.2) unstable; urgency=medium
 
   * Move to github, CI ftw!
