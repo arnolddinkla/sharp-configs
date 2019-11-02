@@ -12,10 +12,9 @@
 			</action>
       </item>
 		<separator/>
-      <!-- un-comment this section for an auto-generating application menu
+      <!-- Auto-updating applications menu: -->
       <menu id="applications-menu" label="Applications" execute="/usr/bin/obamenu"/>
-      <separator/>
-      -->
+      <!-- Non-updating applications menu:
 		<menu id="apps" label="Applications">
 			<item label="Disk editor (!)">
 				<action name="Execute">
@@ -62,7 +61,8 @@
 					<command>xlinks2</command>
 				</action>
 			</item>
-		</menu>
+      </menu>
+      -->
 		<menu id="prefs" label="Preferences">
 			<item label="Appearance">
 				<action name="Execute">

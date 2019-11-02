@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Network Manager (not that one)
+Comment=curses frontend to ifupdown
+Exec=x-terminal-emulator -e 'sudo grml-network'
+Type=Application
+Categories=Settings;
