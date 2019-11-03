@@ -2,7 +2,7 @@
 xset s 300 b off
 
 # set wallpaper with feh, /usr/share/sharpbang/images/wallpaper.png is the original
-sh ~/.fehbg
+~/.fehbg
 
 # automatic wallpaper changer using images in ~/Pictures/wallpapers/
 # while sleep 600; do feh --bg-fill --randomize "${HOME}/Pictures/wallpapers/"; done &
