@@ -10,21 +10,20 @@
 !! Menu settings
 
 menu.title.bg: flat solid
-menu.title.bg.color: #323537
-menu.title.text.color: #cecece
+menu.title.bg.color: #fcfcfc
+menu.title.text.color: #212223
 menu.title.text.justify: right
 
-menu.separator.color: #647074
+menu.separator.color: #888888
 
 menu.items.bg: flat solid
-menu.items.bg.color: #323537
-menu.items.text.color: #cecece
-menu.items.disabled.text.color: #878889
+menu.items.bg.color: #fcfcfc
+menu.items.text.color: #212223
+menu.items.disabled.text.color: #aaaaaa
 
 menu.items.active.bg: flat solid
-menu.items.active.bg.color: #485256
+menu.items.active.bg.color: #398ee7
 menu.items.active.text.color: #eeeeee
-menu.bullet.selected.image.color: #cecece
 
 !! focused window settings
 
@@ -74,7 +73,7 @@ menu.overlap.x: -3
 
 !! Miscellaneous settings
 border.color: #888888
-menu.border.color: #222527
+menu.border.color: #cecece
 
 !! OSD
 osd.bg: flat gradient vertical bevel1
