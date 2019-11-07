@@ -12,38 +12,38 @@ UXTerm*vt100.saveLines: 65535
 UXTerm*vt100.geometry: 90x30
 
 ! Colours
-UXTerm*vt100.cursorColor: #88aa88
-UXTerm*vt100.foreground:  #888888
+UXTerm*vt100.cursorColor: #44aa44
+UXTerm*vt100.foreground:  #666666
 UXTerm*vt100.background:  #cecece
 
 ! Black
-UXTerm*vt100.color0:      #666666
+UXTerm*vt100.color0:      #444444
 UXTerm*vt100.color8:      #888888
 
 ! Red
-UXTerm*vt100.color1:      #aa8888
-UXTerm*vt100.color9:      #aa8888
+UXTerm*vt100.color1:      #aa4444
+UXTerm*vt100.color9:      #aa6666
 
 ! Green
-UXTerm*vt100.color2:      #88aa88
-UXTerm*vt100.color10:     #88aa88
+UXTerm*vt100.color2:      #44aa44
+UXTerm*vt100.color10:     #66aa66
 
 ! Yellow
-UXTerm*vt100.color3:      #aaaa88
-UXTerm*vt100.color11:     #aaaa88
+UXTerm*vt100.color3:      #aaaa44
+UXTerm*vt100.color11:     #aaaa66
 
 ! Blue
-UXTerm*vt100.color4:      #8888aa
-UXTerm*vt100.color12:     #8888aa
+UXTerm*vt100.color4:      #4444aa
+UXTerm*vt100.color12:     #6666aa
 
 ! Magenta
-UXTerm*vt100.color5:      #aa88aa
-UXTerm*vt100.color13:     #aa88aa
+UXTerm*vt100.color5:      #aa44aa
+UXTerm*vt100.color13:     #aa66aa
 
 ! Cyan
-UXTerm*vt100.color6:      #88aaaa
-UXTerm*vt100.color14:     #88aaaa
+UXTerm*vt100.color6:      #44aaaa
+UXTerm*vt100.color14:     #66aaaa
 
 ! White
 UXTerm*vt100.color7:      #aaaaaa
-UXTerm*vt100.color15:     #aaaaaa
+UXTerm*vt100.color15:     #eeeeee
