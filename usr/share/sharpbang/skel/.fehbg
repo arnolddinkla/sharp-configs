@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-tile /usr/share/sharpbang/images/wallpaper.png
+feh --bg-tile /usr/share/sharpbang/wallpapers/tweed.png
