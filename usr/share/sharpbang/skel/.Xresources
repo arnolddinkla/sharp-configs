@@ -9,7 +9,6 @@ UXTerm*vt100.cursorUnderLine: true
 UXTerm*vt100.cursorBlink: true
 UXTerm*vt100.faceName: mono:bold:size=10
 UXTerm*vt100.saveLines: 65535
-UXTerm*vt100.geometry: 90x30
 
 ! Colours
 UXTerm*vt100.cursorColor: #44aa44
