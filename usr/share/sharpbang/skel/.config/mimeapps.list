@@ -1,12 +1,12 @@
 [Default Applications]
-image/gif=geeqie.desktop
-image/jpeg=geeqie.desktop
-image/png=geeqie.desktop
-image/svg+xml=geeqie.desktop
-text/plain=geany.desktop
-text/html=geany.desktop
-application/xml=geany.desktop
-application/javascript=geany.desktop
+image/gif=feh.desktop
+image/jpeg=feh.desktop
+image/png=feh.desktop
+image/svg+xml=feh.desktop
+text/plain=mousepad.desktop
+text/html=mousepad.desktop
+application/xml=mousepad.desktop
+application/javascript=mousepad.desktop
 x-directory/normal=thunar.desktop
 x-directory/gnome-default-handler=thunar.desktop
 inode/directory=thunar.desktop
