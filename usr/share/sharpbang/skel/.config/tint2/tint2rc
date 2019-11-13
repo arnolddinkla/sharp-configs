@@ -76,7 +76,7 @@ task_tooltip = 1
 task_icon_asb = 100 0 0
 task_active_icon_asb = 100 0 0
 task_urgent_icon_asb = 100 0 0
-task_iconified_icon_asb = 100 0 0
+task_iconified_icon_asb = 75 0 0
 
 # Fonts
 task_font = sans, 10

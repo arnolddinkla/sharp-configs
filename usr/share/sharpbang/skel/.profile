@@ -26,7 +26,7 @@ fi
 
 # set tty colours to match .Xresources scheme
 if [ "$TERM" = "linux" ]; then
-    printf "\e]P0444444" # color0
+    printf "\e]P0000000" # color0
     printf "\e]P1aa4444" # color1
     printf "\e]P244aa44" # color2
     printf "\e]P3aaaa44" # color3
