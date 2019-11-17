@@ -1,4 +1,4 @@
-set tabstop=3
+set tabstop=3 softtabstop=0 expandtab shiftwidth=3 smarttab
 set number
 set smartcase
 set autoindent

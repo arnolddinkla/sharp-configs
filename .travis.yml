@@ -15,9 +15,9 @@ deploy:
    provider: releases
    api_key: "$GITHUB_TOKEN"
    file:
-      - "../sharp-configs_0.6.0.dsc"
-      - "../sharp-configs_0.6.0.tar.xz"
-      - "../sharp-configs_0.6.0_all.deb"
+      - "../sharp-configs_10.2.0.dsc"
+      - "../sharp-configs_10.2.0.tar.xz"
+      - "../sharp-configs_10.2.0_all.deb"
    skip_cleanup: true
    on:
       tags: true
