@@ -27,20 +27,20 @@ fi
 # set tty colours to match .Xresources scheme
 if [ "$TERM" = "linux" ]; then
     printf "\e]P0000000" # color0
-    printf "\e]P1aa4444" # color1
-    printf "\e]P244aa44" # color2
-    printf "\e]P3aaaa44" # color3
-    printf "\e]P44444aa" # color4
-    printf "\e]P5aa44aa" # color5
-    printf "\e]P644aaaa" # color6
-    printf "\e]P7aaaaaa" # color7
+    printf "\e]P1705050" # color1
+    printf "\e]P260b48a" # color2
+    printf "\e]P3dfaf8f" # color3
+    printf "\e]P4506070" # color4
+    printf "\e]P5dc8cc3" # color5
+    printf "\e]P68cd0d3" # color6
+    printf "\e]P7dcdccc" # color7
     printf "\e]P8888888" # color8
-    printf "\e]P9aa6666" # color9
-    printf "\e]PA66aa66" # color10
-    printf "\e]PBaaaa66" # color11
-    printf "\e]PC6666aa" # color12
-    printf "\e]PDaa66aa" # color13
-    printf "\e]PE66aaaa" # color14
+    printf "\e]P9dca3a3" # color9
+    printf "\e]PAc3bf9f" # color10
+    printf "\e]PBf0dfaf" # color11
+    printf "\e]PC94bff3" # color12
+    printf "\e]PDec93d3" # color13
+    printf "\e]PE93e0e3" # color14
     printf "\e]PFeeeeee" # color15
 #   clear # removes artefacts but also removes /etc/{issue,motd}
 fi

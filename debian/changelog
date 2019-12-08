@@ -1,3 +1,11 @@
+sharp-configs (10.2.1) unstable; urgency=medium
+
+  * Corrected editor shortcut in rc.xml
+  * Back to black terminal
+  * Bitmap font for terminal
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sun, 08 Dec 2019 11:16:03 +0000
+
 sharp-configs (10.2.0) unstable; urgency=medium
 
   * New release

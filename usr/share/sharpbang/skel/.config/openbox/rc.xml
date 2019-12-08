@@ -365,7 +365,7 @@
           <enabled>false</enabled>
           <name>Editor</name>
         </startupnotify>
-        <command>geany</command>
+        <command>mousepad</command>
       </action>
     </keybind>
     <keybind key="W-m">
