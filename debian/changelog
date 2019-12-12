@@ -1,3 +1,10 @@
+sharp-configs (10.2.3) unstable; urgency=medium
+
+  * Volumeicon slider now vertical
+  * Power manager notifications enabled
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Thu, 12 Dec 2019 18:41:27 +0000
+
 sharp-configs (10.2.2) unstable; urgency=medium
 
   * Inconsolata as monospace font

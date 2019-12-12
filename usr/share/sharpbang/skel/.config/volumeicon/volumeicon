@@ -3,7 +3,7 @@
 stepsize=5
 lmb_slider=true
 mmb_mute=false
-use_horizontal_slider=true
+use_horizontal_slider=false
 use_transparent_background=true
 show_sound_level=false
 onclick=pavucontrol
