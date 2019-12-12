@@ -7,14 +7,13 @@ Xft.hintstyle: slight
 UXTerm*vt100.allowBoldFonts: false
 UXTerm*vt100.cursorUnderLine: true
 UXTerm*vt100.cursorBlink: true
-UXTerm*vt100.font: -*-clean-medium-r-*-*-12-*-*-*-*-*-*-*
-!UXTerm*vt100.faceName: mono:bold:size=10
+UXTerm*vt100.faceName: mono:bold:size=10
 UXTerm*vt100.saveLines: 65535
 
 ! Colours
 UXTerm*vt100.cursorColor: #00ff00
-UXTerm*vt100.foreground:  #cecece
-UXTerm*vt100.background:  #111213
+UXTerm*vt100.foreground:  #bfbfbf
+UXTerm*vt100.background:  #313233
 
 ! Black
 UXTerm*vt100.color0:      #000000

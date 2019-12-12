@@ -29,14 +29,14 @@ rounded = 0
 border_width = 2
 border_sides = T
 background_color = #cecece 100
-border_color = #888888 100
+border_color = #aaaaaa 100
 
 # ID 6 (Iconified task)
 rounded = 0
 border_width = 2
 border_sides = B
 background color = #cecece 100
-border_color = #888888 100
+border_color = #aaaaaa 100
 
 # Panel
 panel_monitor = all

@@ -66,7 +66,7 @@ window.inactive.button.disabled.image.color: #CECECE
 
 !! Global width settings
 border.Width: 1
-padding.width: 3
+padding.width: 5
 window.handle.width: 0
 window.client.padding.width: 0
 menu.overlap.x: -3

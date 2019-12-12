@@ -1,3 +1,11 @@
+sharp-configs (10.2.2) unstable; urgency=medium
+
+  * Inconsolata as monospace font
+  * Back to XFT fonts for terminal
+  * Removed grml-network menu entry
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Thu, 12 Dec 2019 10:07:20 +0000
+
 sharp-configs (10.2.1) unstable; urgency=medium
 
   * Corrected editor shortcut in rc.xml
