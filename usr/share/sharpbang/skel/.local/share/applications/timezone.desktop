@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=Timezone
+Name=System Timezone
 Comment=Change system timezone
 Type=Application
 Exec=x-terminal-emulator -e sudo dpkg-reconfigure tzdata

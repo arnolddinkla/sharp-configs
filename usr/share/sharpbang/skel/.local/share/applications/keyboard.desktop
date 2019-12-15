@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=Keyboard
+Name=System Keyboard
 Comment=Change system keyboard configuration
 Type=Application
 Exec=x-terminal-emulator -e sudo dpkg-reconfigure keyboard-configuration
