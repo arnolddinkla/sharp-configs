@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Disk Usage
+Comment=Monitor disk use with ncdu
+Type=Application
+Exec=x-terminal-emulator -e sudo ncdu -x /
+Categories=Settings;DesktopSettings;
