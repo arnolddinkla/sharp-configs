@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Change Desktop Environment
+Comment=Configure the x-session-manager alternative
+Type=Application
+Exec=x-terminal-emulator -e sudo update-alternatives --config x-session-manager
+Categories=Settings;DesktopSettings;

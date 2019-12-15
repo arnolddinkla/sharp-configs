@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Font Configuration
+Comment=Select hinting method & style, subpixel rendering and bitmap fonts
+Type=Application
+Exec=x-terminal-emulator -e sudo dpkg-reconfigure fontconfig fontconfig-config
+Categories=Settings;DesktopSettings;

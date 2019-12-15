@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Locale
+Commet=Change system locale
+Type=Application
+Exec=x-terminal-emulator -e sudo dpkg-reconfigure locales
+Categories=Settings

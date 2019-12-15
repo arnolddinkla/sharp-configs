@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Console Setup
+Comment=Change console font & charcter set
+Type=Application
+Exec=x-terminal-emulator -e sudo dpkg-reconfigure console-setup
+Categories=Settings;
