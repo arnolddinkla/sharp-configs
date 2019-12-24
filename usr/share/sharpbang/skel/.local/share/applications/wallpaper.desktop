@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Change Wallpaper
+Comment=Edit ~/.fehbg
+Type=Application
+Exec=mousepad ~/.fehbg
+Categories=Settings;DesktopSettings;

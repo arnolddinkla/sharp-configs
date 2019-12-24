@@ -1,3 +1,9 @@
+sharp-configs (10.2.5) unstable; urgency=medium
+
+  * Added menu entries for root terminal, xkill & wallpaper changer
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Mon, 23 Dec 2019 20:20:49 +0000
+
 sharp-configs (10.2.3) unstable; urgency=medium
 
   * Volumeicon slider now vertical

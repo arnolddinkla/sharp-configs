@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Root Terminal
+Comment=Run terminal emulator as root
+Type=Application
+Exec=x-terminal-emulator -e sudo -i
+Categories=System;TerminalEmulator;
