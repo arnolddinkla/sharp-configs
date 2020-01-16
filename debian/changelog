@@ -1,3 +1,10 @@
+sharp-configs (10.2.6) unstable; urgency=medium
+
+  * Added "application store" menu entry
+  * Screen locker option in openbox autostart
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Thu, 16 Jan 2020 19:03:20 +0000
+
 sharp-configs (10.2.5) unstable; urgency=medium
 
   * Added menu entries for root terminal, xkill & wallpaper changer
