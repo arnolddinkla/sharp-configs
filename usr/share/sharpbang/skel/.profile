@@ -45,12 +45,6 @@ if [ "$TERM" = "linux" ]; then
 #   clear # removes artefacts but also removes /etc/{issue,motd}
 fi
 
-# Qt5 configuration
-export QT_STYLE_OVERRIDE=GTK+
-export QT_QPA_PLATFORMTHEME=gtk2
-export QT_PLATFORMTHEME=gtk2
-export QT_PLATFORM_PLUGIN=gtk2
-
 # set ksh configuration file
 export ENV="${HOME}/.kshrc"
 

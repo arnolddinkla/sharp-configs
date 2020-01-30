@@ -3,6 +3,9 @@ Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: slight
 
+! Set custom DPI
+! Xft.dpi: 96
+
 ! (U)XTerm
 UXTerm*vt100.allowBoldFonts: false
 UXTerm*vt100.cursorUnderLine: true
@@ -10,7 +13,7 @@ UXTerm*vt100.cursorBlink: true
 UXTerm*vt100.faceName: mono:bold:size=10
 UXTerm*vt100.saveLines: 65535
 
-! Colours
+! Colours (just for uxterm)
 UXTerm*vt100.cursorColor: #00ff00
 UXTerm*vt100.foreground:  #bfbfbf
 UXTerm*vt100.background:  #313233
@@ -46,3 +49,40 @@ UXTerm*vt100.color14:     #93e0e3
 ! White
 UXTerm*vt100.color7:      #dcdccc
 UXTerm*vt100.color15:     #eeeeee
+ 
+! More Colours (for everything else)
+! Sorry for the duplication...
+*.foreground: #bfbfbf
+*.background: #313233
+
+! Black
+*.color0:     #000000
+*.color8:     #888888
+
+! Red
+*.color1:     #705050
+*.color9:     #dca3a3
+
+! Green
+*.color2:     #60b48a
+*.color10:    #c3bf9f
+
+! Yellow
+*.color3:     #dfaf8f
+*.color11:    #f0dfaf
+
+! Blue
+*.color4:     #506070
+*.color12:    #94bff3
+
+! Magenta
+*.color5:     #dc8cc3
+*.color13:    #ec93d3
+
+! Cyan
+*.color6:     #8cd0d3
+*.color14:    #93e0e3
+
+! White
+*.color7:     #dcdccc
+*.color15:    #eeeeee

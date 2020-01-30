@@ -1,5 +1,5 @@
-# blank screen after 300 seconds, disable beep
-xset s 300 b off
+# disable beep
+xset b off
 
 # set wallpaper with feh, /usr/share/sharpbang/images/wallpaper.png is the original
 ~/.fehbg
@@ -19,5 +19,6 @@ volumeicon &
 # allow pkexec
 #/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-# start xscreensaver (for automatic screen locking)
-#xscreensaver -nosplash &
+# start xautolock (for automatic screen locking)
+# move mouse cursor to corner to disable temporarily
+#xautolock -time 10 -locker slock -corners ----

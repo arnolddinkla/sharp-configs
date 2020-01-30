@@ -31,7 +31,7 @@ then
 # comment out the next line if you use x-terminal-emulator
     mpv --no-terminal --force-window --geometry="$geom" --lua-opts="$luaopts" "$@"
 else
-    mpv --no-terminal --force-window --idle --title='mpv - ${filename:Drop media files here}'
+    mpv --no-terminal --force-window --idle --title="mpv - ${filename:Drop media files here}"
 fi
 
 exit

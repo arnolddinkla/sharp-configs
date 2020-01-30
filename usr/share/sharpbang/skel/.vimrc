@@ -11,11 +11,9 @@ set ruler
 set laststatus=2
 set noshowcmd
 set ttyfast
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 filetype plugin indent on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor="latex"
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 syntax on
 hi CursorLine	cterm=NONE	ctermbg=236	ctermfg=NONE
 hi LineNr	cterm=NONE	ctermbg=236	ctermfg=GREY

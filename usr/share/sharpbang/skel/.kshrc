@@ -24,7 +24,7 @@ if [ -x /usr/bin/dircolors ]; then
    alias egrep='egrep --color'
 fi
 
-# I don't understand popd & pushd :-(
+# Get out faster
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'

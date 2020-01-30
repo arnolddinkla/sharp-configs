@@ -1,4 +1,4 @@
 WebBrowser=debian-sensible-browser
 MailReader=
-FileManager=custom-FileManager
+FileManager=thunar
 TerminalEmulator=debian-x-terminal-emulator

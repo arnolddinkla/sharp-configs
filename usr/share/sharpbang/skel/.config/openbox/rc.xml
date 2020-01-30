@@ -317,7 +317,7 @@
     <keybind key="A-F2">
       <action name="Execute">
         <startupnotify>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <name>gmrun</name>
         </startupnotify>
 		  <command>gmrun</command>
@@ -326,7 +326,7 @@
     <keybind key="A-F3">
       <action name="Execute">
         <startupnotify>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <name>dmenu</name>
         </startupnotify>
 		  <command>dmenu_run</command>
@@ -335,7 +335,7 @@
     <keybind key="W-f">
       <action name="Execute">
         <startupnotify>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <name>File Manager</name>
         </startupnotify>
         <command>thunar</command>
@@ -344,7 +344,7 @@
     <keybind key="W-t">
       <action name="Execute">
         <startupnotify>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <name>Terminal</name>
         </startupnotify>
         <command>x-terminal-emulator</command>
@@ -362,7 +362,7 @@
     <keybind key="W-l">
       <action name="Execute">
         <startupnotify>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <name>Lock screen</name>
         </startupnotify>
         <command>slock</command>
@@ -371,7 +371,7 @@
     <keybind key="W-e">
       <action name="Execute">
         <startupnotify>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <name>Editor</name>
         </startupnotify>
         <command>mousepad</command>
@@ -380,7 +380,7 @@
     <keybind key="W-m">
       <action name="Execute">
         <startupnotify>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <name>Mediaplayer</name>
         </startupnotify>
         <command>sharp-mpv</command>
@@ -389,7 +389,7 @@
     <keybind key="W-h">
       <action name="Execute">
         <startupnotify>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <name>htop</name>
         </startupnotify>
         <command>x-terminal-emulator -T 'htop task manager' -e htop</command>
@@ -404,17 +404,10 @@
         <command>pavucontrol</command>
       </action>
     </keybind>
-<!--
-    <keybind key="XF86AudioMute">
-      <action name="Execute">
-        <command>amixer set -D pulse Master toggle</command>
-      </action>
-    </keybind>
--->
-    <keybind key="W-S-q">
+    <keybind key="W-x">
       <action name="Execute">
         <startupnotify>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <name>Logout</name>
         </startupnotify>
         <command>sharp-exit</command>
@@ -423,7 +416,7 @@
     <keybind key="W-Escape">
       <action name="Execute">
         <startupnotify>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <name>xkill</name>
         </startupnotify>
         <command>xkill</command>
