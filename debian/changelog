@@ -1,3 +1,14 @@
+sharp-configs (10.2.7) unstable; urgency=medium
+
+  * Linted /usr/bin/sharp-mpv
+  * Removed desktop configuration from ~/.profile
+  * Added firefox-esr preferences
+  * Extended colours for ~/.Xresources
+  * Returned to CrunchBang keybinds
+  * Specified thunar as exo-preferred file manager
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Thu, 30 Jan 2020 17:38:33 +0000
+
 sharp-configs (10.2.6) unstable; urgency=medium
 
   * Added "application store" menu entry
