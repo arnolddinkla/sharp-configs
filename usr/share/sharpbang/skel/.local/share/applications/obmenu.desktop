@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Edit openbox menu
+Comment=Runs obmenu
+Type=Application
+Exec=obmenu
+Categories=Settings;DesktopSettings;

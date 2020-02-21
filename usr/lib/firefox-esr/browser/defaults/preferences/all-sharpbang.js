@@ -1,3 +1,4 @@
+// SharpBang custom configuration
 pref("extensions.pocket.enabled", false);
 pref("browser.newtabpage.enabled", false);
 pref("browser.startup.homepage", "about:blank");

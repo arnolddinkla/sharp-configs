@@ -1,3 +1,13 @@
+## Note: some programs are run via XDG autostart.
+## Run
+## /usr/lib/x86_64-linux-gnu/openbox-xdg-autostart --list
+## or
+## /usr/lib/i386-linux-gnu/openbox-xdg-autostart --list
+## to list any XDG autostarted programs.
+##
+## More information about this can be found at:
+## http://openbox.org/wiki/Help:Autostart
+
 # disable beep
 xset b off
 
@@ -17,8 +27,8 @@ tint2 &
 volumeicon &
 
 # allow pkexec
-#/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 # start xautolock (for automatic screen locking)
 # move mouse cursor to corner to disable temporarily
-#xautolock -time 10 -locker slock -corners ----
+# xautolock -time 10 -locker slock -corners ----

@@ -1,8 +1,3 @@
-! Fonts
-Xft.antialias: true
-Xft.hinting: true
-Xft.hintstyle: slight
-
 ! Set custom DPI
 ! Xft.dpi: 96
 

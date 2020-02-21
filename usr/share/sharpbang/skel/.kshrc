@@ -1,6 +1,6 @@
 # Set prompt
 case $0 in
-   *mksh*) . "${HOME}/.mkshrc" ;;
+   *mksh*) [ -f "${HOME}/.mkshrc" ] && . "${HOME}/.mkshrc" || cp /etc/skel/.mkshrc "$HOME" && . "${HOME}/.mkshrc" ;;
    *loksh*) PS1='\h:\w\e[1;31m${?#0}\e[0m\$ ' ;;
    *) : ;;
 esac

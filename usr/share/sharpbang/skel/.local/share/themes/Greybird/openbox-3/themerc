@@ -42,7 +42,7 @@ window.active.label.text.color: #444444
 window.*.button.*.bg: parentrelative
 window.active.button.*.image.color: #888888
 window.active.button.*.hover.image.color: #444444
-window.active.button.*.pressed.image.color: #000000
+window.active.button.*.pressed.image.color: #398ee7
 window.active.button.disabled.image.color: #CECECE
 
 !! unfocused window settings
@@ -61,7 +61,7 @@ window.inactive.label.text.color: #888888
 
 window.inactive.button.*.image.color: #BBBBBB
 window.inactive.button.*.hover.image.color: #888888
-window.inactive.button.*.pressed.image.color: #444444
+window.inactive.button.*.pressed.image.color: #398ee7
 window.inactive.button.disabled.image.color: #CECECE
 
 !! Global width settings

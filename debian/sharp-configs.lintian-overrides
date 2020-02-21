@@ -1,2 +1,1 @@
-sharp-configs: binary-without-manpage usr/bin/sharp-exit
 sharp-configs: binary-without-manpage usr/bin/sharp-mpv

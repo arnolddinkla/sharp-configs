@@ -1,3 +1,14 @@
+sharp-configs (10.3.1) unstable; urgency=medium
+
+  * Removed all font configuration except aliases and GTK2/3+ settings
+  * Removed extra wallpapers
+  * Corrected location for firefox-esr preferences
+  * Corrected theme for xfce4-notify
+  * Changed button.pressed in openbox themes to Adwaita blue
+  * Added obmenu menu entry
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sun, 16 Feb 2020 14:18:35 +0000
+
 sharp-configs (10.2.7) unstable; urgency=medium
 
   * Linted /usr/bin/sharp-mpv
