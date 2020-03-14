@@ -12,28 +12,28 @@ background_color = #cecece 100
 
 # ID 3 (Active task)
 rounded = 0
-border_width = 2
+border_width = 3
 border_sides = T
 background_color = #cecece 100
 border_color = #398ee7 100
 
 # ID 4 (Urgent task)
 rounded = 0
-border_width = 2
+border_width = 3
 border_sides = T
 background_color = #cecece 100
 border_color = #aa4444 100
 
 # ID 5 (Background task)
 rounded = 0
-border_width = 2
+border_width = 3
 border_sides = T
 background_color = #cecece 100
 border_color = #aaaaaa 100
 
 # ID 6 (Iconified task)
 rounded = 0
-border_width = 2
+border_width = 3
 border_sides = B
 background color = #cecece 100
 border_color = #aaaaaa 100
@@ -43,7 +43,7 @@ panel_monitor = all
 panel_position = bottom center horizontal
 panel_size = 100% 30
 panel_margin = 0 0
-panel_padding = 1 1 1
+panel_padding = 0 0 0
 panel_dock = 0
 wm_menu = 1
 panel_layer = top
@@ -55,7 +55,7 @@ strut_policy = follow_size
 
 # Taskbar
 taskbar_mode = single_desktop
-taskbar_padding = 1 1 1
+taskbar_padding = 0 0 0
 taskbar_background_id = 2
 taskbar_active_background_id = 2
 
@@ -64,8 +64,8 @@ urgent_nb_of_blink = 20
 task_icon = 1
 task_text = 1
 task_centered = 0
-task_maximum_size = 200 40
-task_padding = 1 1
+task_maximum_size = 180 30
+task_padding = 0 0 0
 task_background_id = 5
 task_active_background_id = 3
 task_urgent_background_id = 4
@@ -98,7 +98,7 @@ time1_format = %H:%M
 time1_font = sans, 15
 clock_font_color = #666666 100
 clock_tooltip = %F
-clock_padding = 1 1 1
+clock_padding = 3 0
 clock_background_id = 0
 clock_rclick_command = gsimplecal
 

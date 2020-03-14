@@ -1,3 +1,10 @@
+sharp-configs (10.3.2) unstable; urgency=medium
+
+  * Minor tint2 changes
+  * Minor style changes for system scripts
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sat, 14 Mar 2020 09:56:42 +0000
+
 sharp-configs (10.3.1) unstable; urgency=medium
 
   * Removed all font configuration except aliases and GTK2/3+ settings
