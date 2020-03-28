@@ -9,6 +9,14 @@
     <directories />
   </action>
   <action>
+    <icon>utilities-terminal</icon>
+    <name>Open root terminal here</name>
+    <command>sh -c &apos;cd %f;x-terminal-emulator -e sudo -s&apos;</command>
+    <description />
+    <patterns>*</patterns>
+    <directories />
+  </action>
+  <action>
     <icon>applications-system</icon>
     <name>Check sha512sum</name>
     <command>yad --image=dialog-info --button=OK --title=&quot;Check sha512sum for %n&quot; --text=&quot;$(sha512sum %f)&quot; --borders=20 --center</command>

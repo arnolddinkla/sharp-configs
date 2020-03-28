@@ -1,3 +1,13 @@
+sharp-configs (10.3.3) unstable; urgency=medium
+
+  * Corrected ~/.config/xfce4/helpers.rc
+  * Switched to Arial & Times New Roman fonts
+  * Removed geany configuration
+  * Reduced size of side-pane icons in Thunar
+  * Disabled Mozilla's "safebrowsing" [sic]
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sat, 28 Mar 2020 10:15:17 +0000
+
 sharp-configs (10.3.2) unstable; urgency=medium
 
   * Minor tint2 changes
