@@ -3,12 +3,13 @@ Section: misc
 Priority: optional
 Maintainer: Matthew T Hoare <matthew.t.hoare@gmail.com>
 Build-Depends: debhelper (>= 11)
-Recommends: compton, feh, fonts-inconsolata, gmrun, lxappearance, lxappearance-obconf, most, openbox, openbox-menu, ranger, suckless-tools, tint2, ttf-mscorefonts-installer, vim, w3m-img, xfce4-notifyd, xorg
-Suggests: firefox-esr, mupdf, mupdf-tools, network-manager, network-manager-gnome, obconf, pavucontrol, pulseaudio, thunar, thunar-archive-plugin, thunar-media-tags-plugin, tumbler, wireless-tools, wpasupplicant, xarchiver, xautolock, xfce4-power-manager
 Standards-Version: 3.9.8
 Homepage: https://head-on-a-stick.github.io
+
 Package: sharp-configs
 Architecture: all
 Depends: ${misc:Depends}, python, rsync, sensible-utils
+Recommends: compton, feh, fonts-inconsolata, gmrun, lxappearance, lxappearance-obconf, most, openbox, openbox-menu, ranger, suckless-tools, tint2, ttf-mscorefonts-installer, vim, w3m-img, xfce4-notifyd, xorg
+Suggests: firefox-esr, mupdf, mupdf-tools, network-manager, network-manager-gnome, obconf, pavucontrol, pulseaudio, thunar, thunar-archive-plugin, thunar-media-tags-plugin, tumbler, wireless-tools, wpasupplicant, xarchiver, xautolock, xfce4-power-manager
 Description: configuration files
  Various configuration files for SharpBang GNU/Linux
