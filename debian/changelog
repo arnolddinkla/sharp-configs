@@ -1,3 +1,14 @@
+sharp-configs (10.3.7) unstable; urgency=medium
+
+  * sharp-user-setup converted to POSIX
+  * tint2rc corrected
+  * prompt fallback for mksh added to skel/.kshrc
+  * Qt setup added to skel/.profile
+  * Bash configuration sourced correctly in skel/.profile
+  * superfluous skel/.xsessionrc removed
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sun, 19 Apr 2020 22:47:31 +0100
+
 sharp-configs (10.3.6) unstable; urgency=medium
 
   * Version bump to match SharpBang ISO version
