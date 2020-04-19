@@ -35,7 +35,7 @@ border_color = #aaaaaa 100
 rounded = 0
 border_width = 3
 border_sides = B
-background color = #cecece 100
+background_color = #cecece 100
 border_color = #aaaaaa 100
 
 # Panel

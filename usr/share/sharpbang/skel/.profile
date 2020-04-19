@@ -12,16 +12,40 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+# if running bash
+if [ -n "$BASH_VERSION" ] ; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ] ; then
+        . "$HOME/.bashrc"
+    fi
+fi
+
+# if running Korn Shell
+if [ -n "$KSH_VERSION" ] ; then
+	# set configuration file
+	if [ -f "$HOME/.kshrc" ] ; then
+		export ENV="$HOME/.kshrc"
+		. "$ENV"
+	fi
+fi
+
 # include sbin in PATH
 if [ -d "/sbin" ] ; then
     PATH="/sbin:$PATH"
 fi
+
 if [ -d "/usr/sbin" ] ; then
     PATH="/usr/sbin:$PATH"
 fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
 fi
 
 # set tty colours to match .Xresources scheme
@@ -45,8 +69,11 @@ if [ "$TERM" = "linux" ]; then
 #   clear # removes artefacts but also removes /etc/{issue,motd}
 fi
 
-# set ksh configuration file
-export ENV="${HOME}/.kshrc"
+# for qt5 apps
+export QT_STYLE_OVERRIDE=GTK+
+export QT_QPA_PLATFORMTHEME=gtk2
+export QT_PLATFORMTHEME=gtk2
+export QT_PLATFORM_PLUGIN=gtk2
 
 # start the desktop automatically from TTY1
 if [ $(tty) = /dev/tty1 ]

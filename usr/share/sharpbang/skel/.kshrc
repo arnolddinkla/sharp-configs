@@ -1,8 +1,20 @@
 # Set prompt
-case $0 in
-   *mksh*) [ -f "${HOME}/.mkshrc" ] && . "${HOME}/.mkshrc" || cp /etc/skel/.mkshrc "$HOME" && . "${HOME}/.mkshrc" ;;
-   *loksh*) PS1='\h:\w\e[1;31m${?#0}\e[0m\$ ' ;;
-   *) : ;;
+case "$0" in
+   *mksh*) if [ -f "${HOME}/.mkshrc" ] ; then
+      . "${HOME}/.mkshrc"
+      else
+         if [ -f /etc/skel/.mkshrc ] ; then
+            cp /etc/skel/.mkshrc "$HOME"
+            . "${HOME}/.mkshrc"
+         else
+            PS1='${USER:=$(id -un)}'"@${HOSTNAME:=$(hostname)}:\$PWD $(if (( USER_ID )); then print \$; else print \#; fi) "
+         fi
+      fi
+      ;;
+   *loksh*) PS1='\h:\w\e[1;31m${?#0}\e[0m\$ '
+      ;;
+   *) :
+      ;;
 esac
 
 # Alias commands to full path to prevent hi-jacking
