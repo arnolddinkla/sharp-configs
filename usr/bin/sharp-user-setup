@@ -103,7 +103,7 @@ fi
 
 echo 'Running sharp-user-setup to import configuration files...' > "$HOME/.xsession-errors"
 
-rsync -rlb "$rsync_option" --checksum --suffix="$backup_suffix" --safe-links /usr/share/sharpbang/skel/ "$HOME"
+rsync -rlb ${rsync_option-} --checksum --suffix="$backup_suffix" --safe-links /usr/share/sharpbang/skel/ "$HOME"
 
 mkdir -p "$HOME/.config/sharpbang" # this should already exist
 touch "$HOME/.config/sharpbang/sharp-setup"

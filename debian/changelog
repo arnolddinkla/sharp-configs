@@ -1,3 +1,10 @@
+sharp-configs (10.3.7+1) unstable; urgency=medium
+
+  * corrected sharp-user-configs
+  * added skel/.local/share/{fonts,icons}
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Mon, 20 Apr 2020 10:08:30 +0100
+
 sharp-configs (10.3.7) unstable; urgency=medium
 
   * sharp-user-setup converted to POSIX
