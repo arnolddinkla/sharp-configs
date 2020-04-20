@@ -1,7 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Application Store
-Comment=Package manager with curses interface
-Type=Application
-Exec=x-terminal-emulator -e sudo aptitude -u
-Categories=System;

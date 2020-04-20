@@ -1,3 +1,10 @@
+sharp-configs (10.3.7+2) unstable; urgency=medium
+
+  * removed dangling symlinks at skel/.{fonts,icons}
+  * removed obsolete symlink at skel/.themes
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Mon, 20 Apr 2020 11:25:39 +0100
+
 sharp-configs (10.3.7+1) unstable; urgency=medium
 
   * corrected sharp-user-configs
