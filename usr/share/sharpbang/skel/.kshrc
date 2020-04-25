@@ -17,6 +17,9 @@ case "$0" in
       ;;
 esac
 
+# Full width man pages
+alias man='MANWIDTH=$COLUMNS man'
+
 # Alias commands to full path to prevent hi-jacking
 alias su='/bin/su'
 alias passwd='/usr/bin/passwd'

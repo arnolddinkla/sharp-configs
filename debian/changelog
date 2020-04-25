@@ -1,3 +1,11 @@
+sharp-configs (10.3.8) unstable; urgency=medium
+
+  * updated sharp-user-setup script
+  * removed /usr/bin/sharp-mpv
+  * deleted sharp.configs.lintian-overrides
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Thu, 23 Apr 2020 18:43:29 +0100
+
 sharp-configs (10.3.7+2) unstable; urgency=medium
 
   * removed dangling symlinks at skel/.{fonts,icons}

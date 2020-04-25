@@ -1,113 +1,209 @@
 #!/bin/sh
 
-#   sharp-user-setup: a script to populate a new user's HOME directory
-#   using template files from /usr/share/sharpbang/skel/
-#   Copyright: 2015-2017 John Crawley <john@bunsenlabs.org>
-#   Copyright: 2020 Matthew T Hoare <matthew.t.hoare@gmail.com>
-#
-#   This program is free software: you can redistribute it and/or modify
-#   it under the terms of the GNU General Public License as published by
-#   the Free Software Foundation, either version 3 of the License, or
-#   (at your option) any later version.
-#
-#   This program is distributed in the hope that it will be useful,
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#   GNU General Public License for more details.
-#
-#   You should have received a copy of the GNU General Public License
-#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#########################################################################
+# sharp-user-setup: a script to populate a new user's HOME directory    #
+# using template files from /usr/share/sharpbang/skel/                  #
+# Copyright: 2015-2017 John Crawley <john@bunsenlabs.org>               #
+# Copyright: 2020 Matthew T Hoare <matthew.t.hoare@gmail.com>           #
+#                                                                       #
+# This program is free software: you can redistribute it and/or modify  #
+# it under the terms of the GNU General Public License as published by  #
+# the Free Software Foundation, either version 3 of the License, or     #
+# (at your option) any later version.                                   #
+#                                                                       #
+# This program is distributed in the hope that it will be useful,       #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of        #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+# GNU General Public License for more details.                          #
+#                                                                       #
+# You should have received a copy of the GNU General Public License     #
+# along with this program.  If not, see <http://www.gnu.org/licenses/>. #
+#########################################################################
 
-version="10.3.7"
-
-usage="sharp-user-setup version ${version}
-
-sharp-user-setup is a script to populate a new user's home directory
-using template files from /usr/share/sharpbang/skel/.
-
-Normally this script is run automatically on a user's first login and 
-inhibited after that by a flag file at ~/.config/sharpbang/sharp-setup
-
-It can, however, be run again by a user to update their config files
-from a new version of sharp-configs. In this case backups will be made
-of any files which are overwritten.
-
-If the user has already made extensive changes to their config files it would 
-be better to copy in new settings from /usr/share/sharpbang/skel/ by hand.
-
-Options:
--h, --help
-   Show this message.
--r, --refresh
-   Copy in any files in /usr/share/sharpbang/skel/ which are different
-   from those in ${HOME}. Overwritten files will be backed up."
+##############
+# Parameters #
+##############
 
 readonly USER=${USER}
 readonly HOME=${HOME}
 readonly GROUP=$(id -ng "$USER")
 
+version='10.3.8'
+
+name="${0##*/}"
+
+backup_suffix="${backup_suffix:-~$( date +%F@%T )}"
+
+sharp_skel="${sharp_skel:-/usr/share/sharpbang/skel/}"
+
+XDG_CONFIG_SHARP="${HOME}/.config/sharpbang"
+
+rsync_options="--recursive --links --safe-links --checksum --backup --suffix=${backup_suffix}"
+
+#############
+# Functions #
+#############
+
+echo ()
+{
+   printf %s\\n "$*"
+}
+
+sharp_setup ()
+{
+   echo "Running ${name} to import configuration files..."
+   # shellcheck disable=SC2086
+   if rsync ${rsync_options} "$sharp_skel" "$HOME" ; then
+      if [ -f "${XDG_CONFIG_SHARP}/sharp-setup" ] ; then
+         :
+      else
+         echo 'Setting inhibition flag...'
+         if [ -d "$XDG_CONFIG_SHARP" ] ; then
+            :
+         else
+            mkdir -p "$XDG_CONFIG_SHARP"
+         fi
+         touch "${XDG_CONFIG_SHARP}/sharp-setup"
+      fi
+      echo 'Done!'
+   else
+      echo 'Copy failed.'
+      exit 70
+   fi
+}
+
+usage ()
+{
+   cat << END
+Usage: ${name} [OPTION]...
+
+Script to set up the SharpBang desktop.
+
+Options:
+   -f, --firstrun
+      Copy files from ${sharp_skel} to ${HOME}, action will be
+      aborted if ${XDG_CONFIG_SHARP}/sharp-setup exists.
+   -h, --help
+      Show this message.
+   -r, --refresh
+      Copy any files in ${sharp_skel} which are different
+      from those in ${HOME}. Overwritten files will be backed up.
+   -v, --verbose
+      Display verbose messages about the copy operation.
+   -V, --version
+      Output version information and exit.
+
+See sharp-user-setup(1) for further details.
+END
+}
+
+refresh_confirm ()
+{
+   cat << END
+
+New versions of files in ${sharp_skel} will be copied 
+into ${HOME}, overwriting files there.
+
+Any overwritten files will be backed up with a suffix of ${backup_suffix}.
+
+If you have already made many changes to your desktop it would be 
+better to check ${sharp_skel} and copy in any new 
+settings to ${HOME} by hand.
+
+Do you want to continue? [y/n]
+
+END
+}
+
+usage_error ()
+{
+   usage >&2
+   exit 64
+}
+
+#################
+# Safety checks #
+#################
+
 # Do not apply configs to the root account.
-if [ "$USER" = "root" ] ; then
-   echo "$0: ERROR: USER is root, abort" >&2
-   exit 1
+if [ "$(id -u)" = 0 ] ; then
+   echo "${name}: error — user is root, action aborted." >&2
+   exit 77
 fi
 
 # Check for the user home directory
 if [ -z "$HOME" ] || [ ! -d "$HOME" ] ; then
-   echo "$0: ERROR: user home directory <$HOME> is not set or does not exist." >&2
-   exit 1
+   echo "${name}: error — user home directory is not set or does not exist." >&2
+   exit 78
 fi
 
-backup_suffix="~$(date +%F@%T)"
 
-if [ -n "$1" ] ; then
+###########################
+# Main script starts here #
+###########################
+
+options=$(getopt --alternative --options fhrvV --longoptions firstrun,help,refresh,verbose,version --name "$name" -- "$@") || exit 64
+
+eval set -- "$options"
+
+if [ $# = 1 ] ; then
+   usage_error
+fi
+
+while :
+do
    case "$1" in
+      -f|--firstrun)
+         if [ -f "${XDG_CONFIG_SHARP}/sharp-setup" ] ; then
+            echo "${XDG_CONFIG_SHARP}/sharp-setup found, refusing to proceed."
+            exit 73
+         else
+            sharp_setup_run='yes'
+         fi
+         shift
+         ;;
       -h|--help)
-         echo "$usage"
-         exit 0
+         usage
+         break
          ;;
       -r|--refresh)
-         echo "
-New versions of files in /usr/share/sharpbang/skel will be copied 
-into $HOME, overwriting files there.
-
-Any overwritten files will be backed up with a suffix of $backup_suffix
-
-If you have already made many changes to your desktop it would be 
-better to check /usr/share/sharpbang/skel and copy in any new 
-settings to $HOME by hand.
-
-Do you want to continue? [y/n]
-"
+         refresh_confirm
          IFS= read -r "reply"
          case "$reply" in
             Y|y|YES|Yes|yes)
-               rsync_option="--verbose"
-               :
+               sharp_setup_run='yes'
                ;;
-            *)
-               echo 'Action aborted, no files copied.'
+            N|n|NO|No|no)
+               echo "Action aborted, no files copied."
                exit 0
                ;;
+            *)
+               # shellcheck disable=SC2027 disable=SC2086
+               echo "${name}: unrecognised option '"${reply}"'" >&2
+               exit 64
+               ;;
          esac
+         shift
          ;;
-      *)
-         echo "$0: $1: bad option" >&2
-         exit 1
+      -v|--verbose)
+         rsync_options="${rsync_options} --verbose"
+         shift
+         ;;
+      -V|--version)
+         echo "$name $version"
+         shift
+         ;;
+      --)
+         shift
+         break
          ;;
    esac
+done
+
+if [ "$sharp_setup_run" = yes ] ; then
+   sharp_setup
 else
-   # If setup already run, do nothing.
-   [ -f "$HOME/.config/sharpbang/sharp-setup" ] && exit 0
+   exit 0
 fi
-
-echo 'Running sharp-user-setup to import configuration files...' > "$HOME/.xsession-errors"
-
-rsync -rlb ${rsync_option-} --checksum --suffix="$backup_suffix" --safe-links /usr/share/sharpbang/skel/ "$HOME"
-
-mkdir -p "$HOME/.config/sharpbang" # this should already exist
-touch "$HOME/.config/sharpbang/sharp-setup"
-
-chown -R "$USER":"$GROUP" "$HOME"
 
 exit 0

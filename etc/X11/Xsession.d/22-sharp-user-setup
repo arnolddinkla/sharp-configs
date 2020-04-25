@@ -1,3 +1,0 @@
-if [ -x /usr/bin/sharp-user-setup ]; then
-   /usr/bin/sharp-user-setup || true
-fi
