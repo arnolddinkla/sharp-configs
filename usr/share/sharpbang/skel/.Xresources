@@ -1,49 +1,49 @@
 ! Set custom DPI
 ! Xft.dpi: 96
 
-! (U)XTerm
-UXTerm*vt100.allowBoldFonts: false
-UXTerm*vt100.cursorUnderLine: true
-UXTerm*vt100.cursorBlink: true
-UXTerm*vt100.faceName: mono:bold:size=10
-UXTerm*vt100.saveLines: 65535
+! XTerm
+*vt100.allowBoldFonts: false
+*vt100.cursorUnderLine: true
+*vt100.cursorBlink: true
+*vt100.faceName: mono:bold:size=10
+*vt100.saveLines: 65535
 
-! Colours (just for uxterm)
-UXTerm*vt100.cursorColor: #00ff00
-UXTerm*vt100.foreground:  #bfbfbf
-UXTerm*vt100.background:  #313233
+! Colours (just for xterm)
+*vt100.cursorColor: #00ff00
+*vt100.foreground:  #bfbfbf
+*vt100.background:  #313233
 
 ! Black
-UXTerm*vt100.color0:      #000000
-UXTerm*vt100.color8:      #888888
+*vt100.color0:      #000000
+*vt100.color8:      #888888
 
 ! Red
-UXTerm*vt100.color1:      #705050
-UXTerm*vt100.color9:      #dca3a3
+*vt100.color1:      #705050
+*vt100.color9:      #dca3a3
 
 ! Green
-UXTerm*vt100.color2:      #60b48a
-UXTerm*vt100.color10:     #c3bf9f
+*vt100.color2:      #60b48a
+*vt100.color10:     #c3bf9f
 
 ! Yellow
-UXTerm*vt100.color3:      #dfaf8f
-UXTerm*vt100.color11:     #f0dfaf
+*vt100.color3:      #dfaf8f
+*vt100.color11:     #f0dfaf
 
 ! Blue
-UXTerm*vt100.color4:      #506070
-UXTerm*vt100.color12:     #94bff3
+*vt100.color4:      #506070
+*vt100.color12:     #94bff3
 
 ! Magenta
-UXTerm*vt100.color5:      #dc8cc3
-UXTerm*vt100.color13:     #ec93d3
+*vt100.color5:      #dc8cc3
+*vt100.color13:     #ec93d3
 
 ! Cyan
-UXTerm*vt100.color6:      #8cd0d3
-UXTerm*vt100.color14:     #93e0e3
+*vt100.color6:      #8cd0d3
+*vt100.color14:     #93e0e3
 
 ! White
-UXTerm*vt100.color7:      #dcdccc
-UXTerm*vt100.color15:     #eeeeee
+*vt100.color7:      #dcdccc
+*vt100.color15:     #eeeeee
  
 ! More Colours (for everything else)
 ! Sorry for the duplication...

@@ -25,8 +25,8 @@
 ##############
 
 readonly USER=${USER}
+
 readonly HOME=${HOME}
-readonly GROUP=$(id -ng "$USER")
 
 version='10.3.8'
 
@@ -202,8 +202,6 @@ done
 
 if [ "$sharp_setup_run" = yes ] ; then
    sharp_setup
-else
-   exit 0
 fi
 
 exit 0
