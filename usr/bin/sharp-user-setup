@@ -51,8 +51,8 @@ Script to set up the SharpBang desktop.
 
 Options:
    -f, --firstrun
-      Copy files from ${sharp_skel} to ${HOME}, action will be 
-      aborted if ${XDG_CONFIG_SHARP}/sharp-setup exists.
+      Copy files from ${sharp_skel} to ${HOME}, action will 
+      be aborted if ${XDG_CONFIG_SHARP}/sharp-setup exists.
    -h, --help
       Show this message.
    -r, --refresh
