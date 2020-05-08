@@ -24,20 +24,13 @@
 # Parameters #
 ##############
 
-readonly USER=${USER}
-
-readonly HOME=${HOME}
-
-version='10.3.8'
-
-name="${0##*/}"
-
-backup_suffix="${backup_suffix:-~$( date +%F@%T )}"
-
-sharp_skel="${sharp_skel:-/usr/share/sharpbang/skel/}"
-
-XDG_CONFIG_SHARP="${HOME}/.config/sharpbang"
-
+readonly USER="$USER"
+readonly HOME="$HOME"
+readonly version='10.3.10'
+readonly name="${0##*/}"
+readonly backup_suffix="${backup_suffix:-~$( date +%F@%T )}"
+readonly sharp_skel="${sharp_skel:-/usr/share/sharpbang/skel/}"
+readonly XDG_CONFIG_SHARP="${HOME}/.config/sharpbang"
 rsync_options="--recursive --links --safe-links --checksum --backup --suffix=${backup_suffix}"
 
 #############
@@ -47,6 +40,85 @@ rsync_options="--recursive --links --safe-links --checksum --backup --suffix=${b
 echo ()
 {
    printf %s\\n "$*"
+}
+
+usage ()
+{
+   cat << END
+Usage: ${name} [OPTION]...
+
+Script to set up the SharpBang desktop.
+
+Options:
+   -f, --firstrun
+      Copy files from ${sharp_skel} to ${HOME}, action will be 
+      aborted if ${XDG_CONFIG_SHARP}/sharp-setup exists.
+   -h, --help
+      Show this message.
+   -r, --refresh
+      Copy any files in ${sharp_skel} which are different
+      from those in ${HOME}. Overwritten files will be backed up.
+   -v, --verbose
+      Display verbose messages about the copy operation.
+   -V, --version
+      Output version information and exit.
+
+See sharp-user-setup(1) for further details.
+END
+}
+
+refresh_confirm ()
+{
+   cat << END
+
+New versions of files in ${sharp_skel} will be 
+copied into ${HOME}, overwriting files there.
+
+Any overwritten files will be backed up with a suffix of ${backup_suffix}.
+
+If you have already made many changes to your desktop it would
+be better to check ${sharp_skel} and copy in any 
+new settings to ${HOME} by hand.
+
+Do you want to continue? [y/n]
+
+END
+   IFS= read -r "reply"
+   case "$reply" in
+      Y|y|YES|Yes|yes)
+         sharp_setup_run='yes'
+         ;;
+      N|n|NO|No|no)
+         echo "Action aborted, no files copied."
+         exit 0
+         ;;
+      *)
+         # shellcheck disable=SC2027 disable=SC2086
+         echo "${name}: unrecognised option '"$reply"'" >&2
+         exit 64
+         ;;
+   esac
+}
+
+usage_error ()
+{
+   usage >&2
+   exit 64
+}
+
+safety_checks ()
+{
+   # Do not apply configs to the root account.
+   if [ "$(id -u)" = 0 ] ; then
+      echo "${name}: error — user is root, action aborted." >&2
+      exit 77
+   fi
+   
+   # Check for the user home directory
+   if [ -z "$HOME" ] || [ ! -d "$HOME" ] ; then
+      echo "${name}: error — user home directory is not set or does not exist." >&2
+      exit 78
+   fi
 }
 
 sharp_setup ()
@@ -67,141 +139,74 @@ sharp_setup ()
       fi
       echo 'Done!'
    else
-      echo 'Copy failed.'
+      echo 'Copy failed.' >&2
       exit 70
    fi
 }
 
-usage ()
+parse_options () 
 {
-   cat << END
-Usage: ${name} [OPTION]...
+   options=$(getopt --alternative --options fhrvV --longoptions firstrun,help,refresh,verbose,version --name "$name" -- "$@") || exit 64
+   
+   eval set -- "$options"
+   
+   if [ $# = 1 ] ; then
+      usage_error
+   fi
 
-Script to set up the SharpBang desktop.
-
-Options:
-   -f, --firstrun
-      Copy files from ${sharp_skel} to ${HOME}, action will be
-      aborted if ${XDG_CONFIG_SHARP}/sharp-setup exists.
-   -h, --help
-      Show this message.
-   -r, --refresh
-      Copy any files in ${sharp_skel} which are different
-      from those in ${HOME}. Overwritten files will be backed up.
-   -v, --verbose
-      Display verbose messages about the copy operation.
-   -V, --version
-      Output version information and exit.
-
-See sharp-user-setup(1) for further details.
-END
-}
-
-refresh_confirm ()
-{
-   cat << END
-
-New versions of files in ${sharp_skel} will be copied 
-into ${HOME}, overwriting files there.
-
-Any overwritten files will be backed up with a suffix of ${backup_suffix}.
-
-If you have already made many changes to your desktop it would be 
-better to check ${sharp_skel} and copy in any new 
-settings to ${HOME} by hand.
-
-Do you want to continue? [y/n]
-
-END
-}
-
-usage_error ()
-{
-   usage >&2
-   exit 64
-}
-
-#################
-# Safety checks #
-#################
-
-# Do not apply configs to the root account.
-if [ "$(id -u)" = 0 ] ; then
-   echo "${name}: error — user is root, action aborted." >&2
-   exit 77
-fi
-
-# Check for the user home directory
-if [ -z "$HOME" ] || [ ! -d "$HOME" ] ; then
-   echo "${name}: error — user home directory is not set or does not exist." >&2
-   exit 78
-fi
-
-
-###########################
-# Main script starts here #
-###########################
-
-options=$(getopt --alternative --options fhrvV --longoptions firstrun,help,refresh,verbose,version --name "$name" -- "$@") || exit 64
-
-eval set -- "$options"
-
-if [ $# = 1 ] ; then
-   usage_error
-fi
-
-while :
-do
-   case "$1" in
-      -f|--firstrun)
-         if [ -f "${XDG_CONFIG_SHARP}/sharp-setup" ] ; then
-            echo "${XDG_CONFIG_SHARP}/sharp-setup found, refusing to proceed."
-            exit 73
-         else
-            sharp_setup_run='yes'
-         fi
-         shift
-         ;;
-      -h|--help)
-         usage
-         break
-         ;;
-      -r|--refresh)
-         refresh_confirm
-         IFS= read -r "reply"
-         case "$reply" in
-            Y|y|YES|Yes|yes)
+   while : ; do
+      case "$1" in
+         -f|--firstrun)
+            if [ -f "${XDG_CONFIG_SHARP}/sharp-setup" ] ; then
+               echo "${XDG_CONFIG_SHARP}/sharp-setup found, refusing to proceed." >&2
+               exit 73
+            else
                sharp_setup_run='yes'
-               ;;
-            N|n|NO|No|no)
-               echo "Action aborted, no files copied."
-               exit 0
-               ;;
-            *)
-               # shellcheck disable=SC2027 disable=SC2086
-               echo "${name}: unrecognised option '"${reply}"'" >&2
-               exit 64
-               ;;
-         esac
-         shift
-         ;;
-      -v|--verbose)
-         rsync_options="${rsync_options} --verbose"
-         shift
-         ;;
-      -V|--version)
-         echo "$name $version"
-         shift
-         ;;
-      --)
-         shift
-         break
-         ;;
-   esac
-done
+            fi
+            shift
+            ;;
+         -h|--help)
+            usage
+            break
+            ;;
+         -r|--refresh)
+            refresh_confirm
+            shift
+            ;;
+         -v|--verbose)
+            rsync_options="${rsync_options} --verbose"
+            shift
+            ;;
+         -V|--version)
+            echo "$name $version"
+            shift
+            ;;
+         --)
+            shift
+            break
+            ;;
+      esac
+   done
+}
 
-if [ "$sharp_setup_run" = yes ] ; then
-   sharp_setup
-fi
+run_options () 
+{
+   if [ "$sharp_setup_run" = yes ] ; then
+      sharp_setup
+   fi
+   
+   exit 0
+}
 
-exit 0
+main ()
+{
+   safety_checks
+   parse_options "$@"
+   run_options
+}
+
+########
+# Main #
+########
+
+main "$@"

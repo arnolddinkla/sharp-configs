@@ -1,3 +1,9 @@
+sharp-configs (10.3.10) unstable; urgency=medium
+
+  * reworked /usr/bin/sharp-user-setup
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Fri, 08 May 2020 12:03:49 +0100
+
 sharp-configs (10.3.9) unstable; urgency=medium
 
   * wildcard for xterm resources so that menu entries are configured
