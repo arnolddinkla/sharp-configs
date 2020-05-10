@@ -26,7 +26,7 @@
 
 readonly USER="$USER"
 readonly HOME="$HOME"
-readonly version='10.4.0'
+readonly version='10.4.1'
 readonly name="${0##*/}"
 readonly backup_suffix="${backup_suffix:-~$( date +%F@%T )}"
 readonly sharp_skel="${sharp_skel:-/usr/share/sharpbang/skel/}"
@@ -67,6 +67,12 @@ See sharp-user-setup(1) for further details.
 END
 }
 
+usage_error ()
+{
+   usage >&2
+   exit 64
+}
+
 refresh_confirm ()
 {
    cat << END
@@ -83,7 +89,7 @@ new settings to ${HOME} by hand.
 Do you want to continue? [y/n]
 
 END
-   IFS= read -r "reply"
+   IFS= read -r reply
    case "$reply" in
       Y|y|YES|Yes|yes)
          sharp_setup_run='yes'
@@ -98,12 +104,6 @@ END
          exit 64
          ;;
    esac
-}
-
-usage_error ()
-{
-   usage >&2
-   exit 64
 }
 
 safety_checks ()
@@ -144,6 +144,16 @@ sharp_setup ()
    fi
 }
 
+first_run ()
+{
+   if [ -f "${XDG_CONFIG_SHARP}/sharp-setup" ] ; then
+      echo "${XDG_CONFIG_SHARP}/sharp-setup found, refusing to proceed." >&2
+      exit 73
+   else
+      sharp_setup_run='yes'
+   fi
+}
+
 parse_options () 
 {
    options=$(getopt --alternative --options fhrvV --longoptions firstrun,help,refresh,verbose,version --name "$name" -- "$@") || exit 64
@@ -157,12 +167,7 @@ parse_options ()
    while : ; do
       case "$1" in
          -f|--firstrun)
-            if [ -f "${XDG_CONFIG_SHARP}/sharp-setup" ] ; then
-               echo "${XDG_CONFIG_SHARP}/sharp-setup found, refusing to proceed." >&2
-               exit 73
-            else
-               sharp_setup_run='yes'
-            fi
+            first_run
             shift
             ;;
          -h|--help)
