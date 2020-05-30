@@ -67,7 +67,7 @@ if [ "$TERM" = "linux" ]; then
 #   clear # removes artefacts but also removes /etc/{issue,motd}
 fi
 
-# for qt5 apps
+# for Qt5 apps
 export QT_STYLE_OVERRIDE=GTK+
 export QT_QPA_PLATFORMTHEME=gtk2
 export QT_PLATFORMTHEME=gtk2
