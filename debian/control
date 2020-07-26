@@ -9,5 +9,7 @@ Homepage: https://head-on-a-stick.github.io
 Package: sharp-configs
 Architecture: all
 Depends: ${misc:Depends}, python, rsync, sensible-utils
+Recommends: compton, console-setup, earlyoom, elementary-xfce-icon-theme, feh, fonts-inconsolata, gmrun, gnome-keyring, greybird-gtk-theme, gsimplecal, htop, lxappearance, lxappearance-obconf, menu, mlocate, mksh, most, obconf, obmenu, openbox, openbox-menu, pciutils, python-xdg, ranger, rfkill, suckless-tools, tint2, ttf-mscorefonts-installer, usb-modeswitch, va-driver-all, vdpau-driver-all, vdpau-va-driver, vim, volumeicon-alsa, w3m-img, wireless-tools, wpasupplicant, xdg-user-dirs, xfce4-notifyd, xfce4-power-manager, xinput, xorg
+Suggests: arandr, bash-completion, busybox-static, catfish, fbxkb, firefox-esr, galculator, gdebi, gparted, gvfs-backends, libexo-1-0, mousepad, mpv, mupdf, mupdf-tools, network-manager, network-manager-gnome, pavucontrol, pulseaudio, qt5-style-plugins, synaptic, thunar, thunar-archive-plugin, thunar-media-tags-plugin, transmission-gtk, tumbler, xarchiver, xautolock
 Description: configuration files
  Various configuration files for SharpBang GNU/Linux

@@ -1,3 +1,10 @@
+sharp-configs (10.4.5) unstable; urgency=medium
+
+  * added Recommends & Suggests
+  * version bump for new SharpBang point release
+
+ -- Matthew T Hoare <matthew.t.hoare@gmail.com>  Sun, 26 Jul 2020 14:22:30 +0100
+
 sharp-configs (10.4.4) unstable; urgency=medium
 
   * updated vimrc
