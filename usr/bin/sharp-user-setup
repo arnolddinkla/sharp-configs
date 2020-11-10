@@ -26,7 +26,7 @@
 
 readonly USER="$USER"
 readonly HOME="$HOME"
-readonly version='10.4.1'
+readonly version='10.6.0'
 readonly name="${0##*/}"
 readonly backup_suffix="${backup_suffix:-~$( date +%F@%T )}"
 readonly sharp_skel="${sharp_skel:-/usr/share/sharpbang/skel/}"
